@@ -1,0 +1,20 @@
+---
+title: "Airbnb data: descriptive statistics"
+author: "Dunietz & Epshtain"
+date: "February 12, 2018"
+output: html_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Data is read into R in the data_analysis.R file
+```
+
+## Descriptive statistics
+
+An initial stab at the data:
+
+```{r data_summary}
+summary(train_rawdata)
+```
