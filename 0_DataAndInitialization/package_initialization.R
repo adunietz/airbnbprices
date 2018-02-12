@@ -27,6 +27,7 @@ install.packages("ROCR")
 install.packages("pROC")
 install.packages("VIM")
 install.packages("glmnet")
+install.packages("RCurl")
 
 # import necessary libraries
 # data wrangling
@@ -62,3 +63,6 @@ library(ROCR)
 library(pROC)
 library(VIM)
 library(glmnet) 
+
+# Misc
+library(RCurl)
