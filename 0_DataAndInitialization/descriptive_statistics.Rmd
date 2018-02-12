@@ -7,14 +7,31 @@ output: html_document
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
 
-# Data is read into R in the data_analysis.R file
+```{r data_load, include = FALSE, cache = TRUE}
+# RData files from Github
+load(url("https://github.com/adunietz/airbnbprices/raw/master/0_DataAndInitialization/train_rawdata.RData"))
+load(url("https://github.com/adunietz/airbnbprices/raw/master/0_DataAndInitialization/test_rawdata.RData"))
 ```
 
 ## Descriptive statistics
 
 An initial stab at the data:
 
-```{r data_summary}
+# Train data
+```{r train_summary}
+# Perhaps make "smart" function to apply to any and all datasets
+colnames(train_rawdata)
 summary(train_rawdata)
+str(train_rawdata)
+hist(train_rawdata$bathrooms)
+```
+
+# Test data
+```{r test_summary}
+colnames(test_rawdata)
+summary(train_rawdata)
+str(train_rawdata)
+hist(test_rawdata$bathrooms)
 ```
