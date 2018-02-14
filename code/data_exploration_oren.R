@@ -7,7 +7,7 @@ setwd("/Users/corel/Dropbox/Docs/Data analysis/dit_deloitte_airbnb") # Mac
 #install.packages("tidyverse")
 #install.packages("glmnet")
 library("tidyverse")
-
+library("stringi")
 # read the train set
 train <- read_csv("data/train.csv", col_names = T)
 
@@ -16,7 +16,6 @@ train <- read_csv("data/train.csv", col_names = T)
 fac_vec <- c(
 "property_type",
 "room_type",
-"amenities",
 "bed_type",
 "cancellation_policy",
 "city")
@@ -75,10 +74,13 @@ train_head <- head(train)
 write_csv(train_head,"results/automatic/train_head.csv")
 
 #### Data Exploration ####
+train %>% group_by(room_type) %>% summarise(mean_log_price = mean(log_price)) %>% 
+  ggplot(aes(x= room_type, y=mean_log_price)) +
+          geom_bar(stat = "identity")
 
-
-
-
-
-
-
+# ameneties
+train$amenities1 <- gsub('(")|(\\{)|(\\})',"",train$amenities)
+train$amenities1 <- gsub("translation missing.*","",train$amenities1)
+train$amenities1 <- gsub(",$","",train$amenities1)
+# number of terms in each amenety record
+str_count(train$amenities1, ",") + 1
