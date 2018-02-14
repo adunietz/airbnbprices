@@ -1,7 +1,7 @@
 ### Diggin the data - first impression.
 # 11.02.18, Oren.
 rm(list=ls(all.names = T))
-setwd("/Users/corel/Dropbox/Docs/Data analysis/Deloitte_Airbnb") # Mac
+setwd("/Users/corel/Dropbox/Docs/Data analysis/dit_deloitte_airbnb") # Mac
 
 # load libraries
 #install.packages("tidyverse")
